@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Mobile Shop</h1>
+    </header>
+    <main>
+        {% for product in products %}
+            <section class="product">
+                <img src="{{ url_for('static', filename='images/' + product['images']) }}" alt="{{ product['iphone 14 pro max'] }}">
+                <h2>{{ product['name'] }}</h2>
+                <p>Price: ${{ product['price'] }}</p>
+                <a href="{{ url_for('product', product_id=product['id']) }}">View Details</a>
+            </section>
+        {% endfor %}
+    </main>
+    <footer>
+        <p>&copy; 2023 Mobile Shop</p>
+    </footer>
+</body>
+</html>
